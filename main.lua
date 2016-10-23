@@ -89,14 +89,16 @@ function is_note(key)
 end
 
 function love.keypressed(key)
-   love.audio.stop()
+   
 
    if not is_note(key) then
       
    elseif key == notes[note] then
+      love.audio.stop()
       love.audio.play(tada);
       note = random_note();
    else
+      love.audio.stop()
       love.audio.play(wah);
    end
 end
